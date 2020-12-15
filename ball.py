@@ -10,6 +10,7 @@ class Ball(Turtle):
         self.shape("circle")
         self.speed_y = 10
         self.speed_x = 10
+        self.move_speed = 0.08
 
     def update(self):
         self.move()
@@ -23,8 +24,14 @@ class Ball(Turtle):
 
         if self.distance(paddle_1) < 50 and self.xcor() > paddle_1.xcor() - 20 or \
                 self.distance(paddle_2) < 50 and self.xcor() < paddle_2.xcor() + 20:
+            self.increase_speed()
             self.speed_x *= -1
 
     def reset_position(self):
         self.home()
+        self.move_speed = 0.08
         self.speed_x = self.speed_x * -1
+
+    def increase_speed(self):
+        self.move_speed *= 0.9
+

@@ -38,7 +38,7 @@ screen.onkeypress(fun=paddle_2.move_down, key="s")
 # game Loop
 is_gaming = True
 while is_gaming:
-    time.sleep(0.08)
+    time.sleep(ball.move_speed)
     screen.update()
     ball.update()
     ball.check_collision(screen.window_height(), paddle_1, paddle_2)
